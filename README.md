@@ -160,7 +160,7 @@ Detailed analysis of network and user tracking commands utilized by security pro
 As a **Security Analyst** handling an escalation involving a severely degraded, slow-running system, here is my methodical approach to threat hunting, identification, and containment:
 
 ### 1. Identifying Resource-Heavy Processes
-To isolate the performance bottleneck, I would utilize active process monitoring interfaces like top or htop[span_0](start_span)[span_0](end_span). Once inside top, I would press the P key to dynamically sort all active system tasks by raw CPU utilization percentage, or press the M key to sort them by physical memory consumption. Alternatively, to obtain an immediate command-line snapshot, I could run a sorted process status query:
+To isolate the performance bottleneck, I would utilize active process monitoring interfaces like top or htop. Once inside top, I would press the P key to dynamically sort all active system tasks by raw CPU utilization percentage, or press the M key to sort them by physical memory consumption. Alternatively, to obtain an immediate command-line snapshot, I could run a sorted process status query:
 
 ps aux --sort=-%cpu | head -n 10
 
