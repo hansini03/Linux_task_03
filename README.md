@@ -1,7 +1,8 @@
 # Linux Task 03: Process Management, System Monitoring & Basic Shell Scripting
 
 **Date:** June 14, 2026  
-**Name:** [Insert Your Name Here]  
+**Name:** Hansini Kulal
+
 **Task Objective:** To understand how the Linux operating system manages processes, monitors core system resources, and automates administrative tasks using shell scripts. These skills are essential foundational pillars for Linux Administrators, SOC Analysts, and Cyber Security Professionals.
 
 ---
@@ -18,7 +19,8 @@ After running the `ps`, `ps aux`, `top`, and `htop` commands, the following reso
 * **Process consuming the most Memory:** `[e.g., Web Content / GNOME Shell]`
 
 ### 3. Verification Screenshots
-*Monitoring system processes and active resource utilization using `top` and `htop`:*
+<img width="1708" height="865" alt="Screenshot 2026-06-15 100814" src="https://github.com/user-attachments/assets/8b71112f-9e97-4f6c-bb1b-7d1ce972bb28" />
+
 
 
 ## Part B: Process Management
@@ -51,8 +53,8 @@ The following tracking data reflects the execution parameters captured during th
 
 ### 3. Verification Screenshots
 Tracking, analyzing, and executing a process termination sequence:
+<img width="1716" height="406" alt="Screenshot 2026-06-15 101213" src="https://github.com/user-attachments/assets/33ba34b6-9762-4aeb-9fdd-0d0f5cf50f4e" />
 
-![Process Management Verification]([Insert path to your screenshot here, e.g., ./screenshots/part_b_kill.png])
 ## Part C: System Monitoring
 
 ### 1. System Resource Metrics
@@ -70,15 +72,15 @@ Executing the system monitoring commands (free -h, df -h, uptime, and uname -a) 
 
 ### 2. Verification Screenshots
 System hardware, disk usage, and kernel resource outputs:
-
-![System Resource Metrics]([Insert path to your screenshot here, e.g., ./screenshots/part_c_metrics.png])
+<img width="1717" height="607" alt="Screenshot 2026-06-15 101406" src="https://github.com/user-attachments/assets/78f45113-5a33-4a98-b7ad-d4558167fe13" />
 
 ## Part D: Service Monitoring
 
 ### 1. Conceptual Framework
-* **[span_0](start_span)What is a Service?** A service (commonly referred to as a daemon) is a specialized utility or program that runs continuously in the background of the operating system without direct user intervention to manage specific system, hardware, or network functions[span_0](end_span).
-* **[span_1](start_span)[span_2](start_span)Why are services important?** Services form the structural core of operating system tasks and infrastructure dependencies[span_1](end_span)[span_2](end_span). [span_3](start_span)They ensure critical system capacities—such as processing secure remote administrative logins (ssh) or dynamically routing connectivity interfaces (NetworkManager)—remain active, initialized, and highly responsive to incoming requests at all times[span_3](end_span).
-* **[span_4](start_span)How can a stopped service affect a system?** When a critical service goes down or is terminated, its corresponding system capability fails instantly[span_4](end_span). [span_5](start_span)For example, stopping the ssh daemon immediately terminates existing remote terminal connections and blocks any new administrative access, while shutting down NetworkManager strips the host machine of its network routing and local internet interface capabilities[span_5](end_span).
+* **What is a Service?** A service (commonly referred to as a daemon) is a specialized utility or program that runs continuously in the background of the operating system without direct user intervention to manage specific system, hardware, or network functions.
+* **Why are services important?** Services form the structural core of operating system tasks and infrastructure dependencies.
+* They ensure critical system capacities—such as processing secure remote administrative logins (ssh) or dynamically routing connectivity interfaces (NetworkManager)—remain active, initialized, and highly responsive to incoming requests at all times.
+* **How can a stopped service affect a system?** When a critical service goes down or is terminated, its corresponding system capability fails instantly. For example, stopping the ssh daemon immediately terminates existing remote terminal connections and blocks any new administrative access, while shutting down NetworkManager strips the host machine of its network routing and local internet interface capabilities.
 
 ---
 
@@ -90,51 +92,31 @@ System hardware, disk usage, and kernel resource outputs:
 
 ### 3. Verification Screenshots
 Tracking, verifying, and analyzing active systemctl daemon target states:
-
-![Service Statuses Verification]([Insert path to your screenshot here, e.g., ./screenshots/part_d_services.png])
+<img width="1714" height="739" alt="Screenshot 2026-06-15 101539" src="https://github.com/user-attachments/assets/8a61bf27-de80-48e7-9c6d-4a61c6d827e5" />
 
 ## Part E: Shell Scripting
 
 ### 1. Script Implementation (system_report.sh)
 This custom Bash script automates local host profiling and outputs a formatted system information report:
 
-#!/bin/bash
-# ==============================================================================
 # Script Name: system_report.sh
 # Purpose: Generates a basic system summary report for local system monitoring.
-# ==============================================================================
+<img width="1717" height="877" alt="Screenshot 2026-06-15 102626" src="https://github.com/user-attachments/assets/2ec80441-d9c7-4759-a3b5-03ba5ada42a2" />
 
-echo "========================================="
-echo "        System Information Report        "
-echo "========================================="
 
-echo "User:              $(whoami)"
-echo "Hostname:          $(hostname)"
-echo "Date:              $(date '+%d-%m-%Y')"
-echo "Current Directory: $(pwd)"
+### 2. Execution Guide & Core Command Breakdown
+To generate the report, the automated workflow processes 4 core system utilities sequentially inside the script framework:
 
-echo -e "\nMemory Usage:"
-free -h
-
-echo -e "\nDisk Usage:"
-df -h / | awk 'NR==1 || NR==2'
-
-echo "========================================="
-
----
-
-### 2. Execution Guide
-To run this script on your machine, modify its permissions and execute it directly from your terminal:
-
-chmod +x system_report.sh
-./system_report.sh
+* **whoami / hostname / pwd / date:** These foundational diagnostic utilities pull host variables directly from the shell session profile to document user context, local network machine aliases, directory paths, and runtime logging timestamps.
+* **free -h:** Queries the virtual memory subsystem profile to output system memory footprints. The `-h` (human-readable) flag formats binary byte allocations into intuitive Gigabyte (Gi) and Megabyte (Mi) performance baselines.
+* **df -h /** Queries the storage block devices table to show remaining drive infrastructure capacities. Specifying the `/` argument limits storage isolation directly to the root partition lifecycle.
+* **awk 'NR==1 || NR==2'** Intercepts the raw data streams passing out of the disk space utility. It applies an operational parsing rule that drops unneeded device records, isolating only the headers (`NR==1`) and primary storage volume layouts (`NR==2`) to keep the report output perfectly clean.
 
 ---
 
 ### 3. Verification Screenshots
-Executing the automated reporting script:
-
-![Script Output Verification]([Insert path to your screenshot here, e.g., ./screenshots/part_e_script.png])
+Executing the automated reporting script and verifying output metrics:
+<img width="1713" height="523" alt="Screenshot 2026-06-15 103432" src="https://github.com/user-attachments/assets/6c6449ac-add3-4cb2-9e9e-cd00a3fa6f16" />
 
 ## Part F: Security Monitoring Challenge
 
